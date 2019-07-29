@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contents %}
+                   
+{%for blog in blogs.all%}
+
+ <br><br>
+  <div class="container">
+   <div class="card">
+   <img src='{% static "images/img5.jpg"%}' class="card-img-top" width="mr-auto" height="500">
+      <div class="card-body">
+       <h5 class="card-title">제목 : {{blog.title}}</h5>
+       <p class="card-text">본문 미리보기 <br>  {{blog.summary}}</p>
+       <a href="{%url 'detail' blog.id %}">...more</a>
+     </div>
+     </div>
+   </div>
+                   
+   {%endfor%}
+
+ 
+{%endblock%}

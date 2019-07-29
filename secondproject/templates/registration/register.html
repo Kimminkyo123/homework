@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block contents %}
+<div id="content">
+
+    <h1>회원가입</h1>
+
+    <form method="post" action="."> {% csrf_token %}
+
+    {% if form.errors %}
+    <p class="errornote">Wrong! Please correct the error(s) below.</p>
+    {% endif %}
+    
+    <p>회원님의 정보를 입력해주세요</p>
+    <br>
+    
+    <fieldset class="aligned">
+    
+        <div class="form-row=10">
+            {{ form.username.label_tag }} {{ form.username }}
+        </div>
+        
+        <div class="form-row=10">
+            {{ form.password1.label_tag }} {{ form.password1 }}
+        </div>
+        
+        <div class="form-row=10">
+            {{ form.password2.label_tag }} {{ form.password2 }}
+        </div>
+    </fieldset>
+    
+    <div class="submit-row=10">
+        <input type="submit" value="완료"/>
+    </div>
+    
+    <script type="text/javascript">document.getElementById("id_username").focus();</script>
+    </form>
+
+</div>
+{% endblock %}
